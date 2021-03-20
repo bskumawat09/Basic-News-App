@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android1="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android1:layout_width="match_parent"
+    android1:layout_height="wrap_content"
+    android1:padding="16dp">
+
+    <ImageView
+        android1:id="@+id/image_view"
+        android1:layout_width="0dp"
+        android1:layout_height="200dp"
+        android1:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_background"
+        android1:contentDescription="@string/image_description" />
+
+    <TextView
+        android1:id="@+id/title_view"
+        android1:layout_width="0dp"
+        android1:layout_height="wrap_content"
+        android1:layout_marginTop="8dp"
+        android1:ellipsize="end"
+        android1:justificationMode="inter_word"
+        android1:maxLines="2"
+        android1:textSize="16sp"
+        android1:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view"
+        tools:text="Tesla to shut down final assembly plant in Tilburg following Model S/X refresh" />
+
+    <TextView
+        android1:id="@+id/source_view"
+        android1:layout_width="0dp"
+        android1:layout_height="wrap_content"
+        android1:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_view"
+        tools:text="Fred Lambert" />
+
+    <TextView
+        android1:id="@+id/time_view"
+        android1:layout_width="0dp"
+        android1:layout_height="wrap_content"
+        android1:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_view"
+        tools:text="2021-03-18T13:50:07Z" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
