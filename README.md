@@ -9,5 +9,7 @@ Simple News application that displays Top Indian News Headlines.
 
 ## Concepts
 - **RecyclerView** with **Adapter** and **ViewHolder**.
+- **CardView**
+- **FloatingActionButton**
 - **OkHttp** client for Networking.
 - **Glide** library for Image processing.
