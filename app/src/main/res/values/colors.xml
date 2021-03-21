@@ -10,7 +10,9 @@
 
     <color name="red_500">#F44336</color>
     <color name="red_700">#D32F2F</color>
+    <color name="red_fab">#FF8A80</color>
 
+    <color name="orange_fab">#FF6E40</color>
     <color name="gray_700">#616161</color>
     <color name="gray_900">#212121</color>
 </resources>

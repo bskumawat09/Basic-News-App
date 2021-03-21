@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class QueryUtil {
+    private static final String LOG_TAG = QueryUtil.class.getSimpleName();
     private QueryUtil() {
     }
 
@@ -44,7 +45,7 @@ public class QueryUtil {
             }
 
         } catch (JSONException e) {
-            Log.e("QueryUtil", "Problem parsing the news JSON response", e);
+            Log.e(LOG_TAG, "Problem parsing the news JSON response", e);
         }
         return newsList;
     }

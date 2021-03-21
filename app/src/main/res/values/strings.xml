@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">News App</string>
+    <string name="app_name">Samachar</string>
     <string name="image_description">News Image</string>
+    <string name="refresh">Refresh</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="request_failed">Request Failed</string>
+    <string name="no_response">No Response</string>
 </resources>

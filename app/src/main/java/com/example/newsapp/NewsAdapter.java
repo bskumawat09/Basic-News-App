@@ -17,18 +17,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.SimpleTimeZone;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemViewHolder> {
 
     private final String LOG_TAG = NewsAdapter.class.getSimpleName();
     private final ArrayList<News> mNewsList;
-    private final Context context;
+    private final Context mContext;
 
     // NewsAdapter constructor
-    public NewsAdapter(Context ctx, ArrayList<News> newsList) {
+    public NewsAdapter(Context context, ArrayList<News> newsList) {
         mNewsList = newsList;
-        context = ctx;
+        mContext = context;
     }
 
     // Updates the mNewsList
@@ -61,13 +67,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemViewHo
         if (currentNews.getUrlImage() == null) {
             holder.imageView.setVisibility(View.GONE);
         } else {
-            Glide.with(context).load(currentNews.getUrlImage()).into(holder.imageView);
+            Glide.with(mContext).load(currentNews.getUrlImage()).into(holder.imageView);
             holder.imageView.setVisibility(View.VISIBLE);
         }
 
         holder.titleView.setText(currentNews.getTitle());
         holder.sourceView.setText(currentNews.getSource());
-        holder.timeView.setText(currentNews.getTime());
+
+        String rawDateTime = currentNews.getTime();
+
+        String updatedDateTime = formatDateTime(rawDateTime);
+
+        holder.timeView.setText(updatedDateTime);
     }
 
     public class NewsItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -98,7 +109,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsItemViewHo
             String url = currentNews.getUrlString();
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
             CustomTabsIntent customTabsIntent = builder.build();
-            customTabsIntent.launchUrl(context, Uri.parse(url));
+            customTabsIntent.launchUrl(mContext, Uri.parse(url));
         }
+    }
+
+    private String formatDateTime(String rawDateTime) {
+        String formattedDateTime = null;
+
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("kk:mm, dd-MM-yyyy");
+
+        try {
+            Date unformatDate = inputFormat.parse(rawDateTime);
+            if (unformatDate != null) {
+                formattedDateTime = outputFormat.format(unformatDate);
+            }
+        } catch (ParseException e) {
+            Log.e(LOG_TAG, "date cannot parse", e);
+            e.printStackTrace();
+        }
+        return  formattedDateTime;
     }
 }

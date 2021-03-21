@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android1="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android1:layout_width="match_parent"
-    android1:layout_height="wrap_content"
-    android1:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="8dp"
+    card_view:cardCornerRadius="8dp">
 
-    <ImageView
-        android1:id="@+id/image_view"
-        android1:layout_width="0dp"
-        android1:layout_height="200dp"
-        android1:scaleType="centerCrop"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_launcher_background"
-        android1:contentDescription="@string/image_description" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
-        android1:id="@+id/title_view"
-        android1:layout_width="0dp"
-        android1:layout_height="wrap_content"
-        android1:layout_marginTop="8dp"
-        android1:ellipsize="end"
-        android1:justificationMode="inter_word"
-        android1:maxLines="2"
-        android1:textSize="16sp"
-        android1:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_view"
-        tools:text="Tesla to shut down final assembly plant in Tilburg following Model S/X refresh" />
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/image_description"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_launcher_background" />
 
-    <TextView
-        android1:id="@+id/source_view"
-        android1:layout_width="0dp"
-        android1:layout_height="wrap_content"
-        android1:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_view"
-        tools:text="Fred Lambert" />
+        <TextView
+            android:id="@+id/title_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:justificationMode="inter_word"
+            android:maxLines="2"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Tesla to shut down final assembly plant in Tilburg following Model S/X refresh" />
 
-    <TextView
-        android1:id="@+id/time_view"
-        android1:layout_width="0dp"
-        android1:layout_height="wrap_content"
-        android1:layout_marginTop="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_view"
-        tools:text="2021-03-18T13:50:07Z" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/source_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="Fred Lambert" />
+
+            <TextView
+                android:id="@+id/time_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2021-03-18T13:50:07Z" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
